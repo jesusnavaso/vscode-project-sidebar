@@ -1,0 +1,197 @@
+{
+  "name": "project-sidebar",
+  "displayName": "Project Sidebar",
+  "description": "Sidebar listing all your projects; click to jump to its VS Code window.",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "tsc -p . && node --test out/registry.test.js",
+    "package": "npm run build && vsce package"
+  },
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "projectSidebar",
+          "title": "Projects",
+          "icon": "$(root-folder)"
+        }
+      ]
+    },
+    "views": {
+      "projectSidebar": [
+        {
+          "id": "projectSidebar.view",
+          "name": "Projects"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "projectSidebar.addCurrent",
+        "title": "Projects: Add Current Folder"
+      },
+      {
+        "command": "projectSidebar.add",
+        "title": "Projects: Add Folder...",
+        "icon": "$(add)"
+      },
+      {
+        "command": "projectSidebar.quickSwitch",
+        "title": "Projects: Quick Switch"
+      },
+      {
+        "command": "projectSidebar.remove",
+        "title": "Remove"
+      },
+      {
+        "command": "projectSidebar.rename",
+        "title": "Rename"
+      },
+      {
+        "command": "projectSidebar.pin",
+        "title": "Pin"
+      },
+      {
+        "command": "projectSidebar.unpin",
+        "title": "Unpin"
+      },
+      {
+        "command": "projectSidebar.setGroup",
+        "title": "Set Group..."
+      },
+      {
+        "command": "projectSidebar.open1",
+        "title": "Projects: Open Project 1"
+      },
+      {
+        "command": "projectSidebar.open2",
+        "title": "Projects: Open Project 2"
+      },
+      {
+        "command": "projectSidebar.open3",
+        "title": "Projects: Open Project 3"
+      },
+      {
+        "command": "projectSidebar.open4",
+        "title": "Projects: Open Project 4"
+      },
+      {
+        "command": "projectSidebar.open5",
+        "title": "Projects: Open Project 5"
+      },
+      {
+        "command": "projectSidebar.open6",
+        "title": "Projects: Open Project 6"
+      },
+      {
+        "command": "projectSidebar.open7",
+        "title": "Projects: Open Project 7"
+      },
+      {
+        "command": "projectSidebar.open8",
+        "title": "Projects: Open Project 8"
+      },
+      {
+        "command": "projectSidebar.open9",
+        "title": "Projects: Open Project 9"
+      },
+      {
+        "command": "projectSidebar.open",
+        "title": "Projects: Open"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "projectSidebar.add",
+          "when": "view == projectSidebar.view",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "projectSidebar.pin",
+          "when": "viewItem == project",
+          "group": "1@1"
+        },
+        {
+          "command": "projectSidebar.unpin",
+          "when": "viewItem == projectPinned",
+          "group": "1@1"
+        },
+        {
+          "command": "projectSidebar.setGroup",
+          "when": "viewItem =~ /^project/",
+          "group": "1@2"
+        },
+        {
+          "command": "projectSidebar.rename",
+          "when": "viewItem =~ /^project/",
+          "group": "2@1"
+        },
+        {
+          "command": "projectSidebar.remove",
+          "when": "viewItem =~ /^project/",
+          "group": "2@2"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "projectSidebar.quickSwitch",
+        "key": "cmd+alt+p"
+      },
+      {
+        "command": "projectSidebar.open1",
+        "key": "cmd+alt+1"
+      },
+      {
+        "command": "projectSidebar.open2",
+        "key": "cmd+alt+2"
+      },
+      {
+        "command": "projectSidebar.open3",
+        "key": "cmd+alt+3"
+      },
+      {
+        "command": "projectSidebar.open4",
+        "key": "cmd+alt+4"
+      },
+      {
+        "command": "projectSidebar.open5",
+        "key": "cmd+alt+5"
+      },
+      {
+        "command": "projectSidebar.open6",
+        "key": "cmd+alt+6"
+      },
+      {
+        "command": "projectSidebar.open7",
+        "key": "cmd+alt+7"
+      },
+      {
+        "command": "projectSidebar.open8",
+        "key": "cmd+alt+8"
+      },
+      {
+        "command": "projectSidebar.open9",
+        "key": "cmd+alt+9"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.4.0"
+  }
+}
